@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Drum
+  - Drum2
+  - Anchor
+  - Cymbal
+  - Cymbal2
   layers:
   - Default
   - TransparentFX

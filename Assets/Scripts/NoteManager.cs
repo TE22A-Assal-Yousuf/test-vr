@@ -37,9 +37,9 @@ public class NoteManager : MonoBehaviour
 
         Player.currentAcuracy -= hitAcuracy;
 
-        Debug.Log($" distance {(int)distance}");
-        Debug.Log($" hitAcuracy {(int)hitAcuracy}");
-        Debug.Log($" currentAcuracy {(int)Player.currentAcuracy} %");
+        // Debug.Log($" distance {(int)distance}");
+        // Debug.Log($" hitAcuracy {(int)hitAcuracy}");
+        // Debug.Log($" currentAcuracy {(int)Player.currentAcuracy} %");
 
         Destroy(this.gameObject);
 
