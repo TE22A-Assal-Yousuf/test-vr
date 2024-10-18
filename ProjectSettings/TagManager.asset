@@ -9,6 +9,8 @@ TagManager:
   - Anchor
   - Cymbal
   - Cymbal2
+  - Blue
+  - Pink
   layers:
   - Default
   - TransparentFX
