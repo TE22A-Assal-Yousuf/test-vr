@@ -7,8 +7,6 @@ using UnityEngine.UIElements;
 public class NoteManager : MonoBehaviour
 {
     private GameObject Drum;
-
-    public float noteSpeed;
     public float noteCenter;
 
     public float distance;
@@ -68,7 +66,6 @@ public class NoteManager : MonoBehaviour
 
     void Update()
     {
-        transform.position += new Vector3(0, 0, noteSpeed);
         //Debug.Log($"{noteCenter}");
 
     }

@@ -22,6 +22,11 @@ public class Player : MonoBehaviour
     {
         DisplayAccuracy = currentAcuracy;
         
+        if(DisplayAccuracy <= 0 )
+        {
+            DisplayAccuracy = 0;
+        }
+
         display.text = $"Accuracy {(int)DisplayAccuracy}%";
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StickScript : MonoBehaviour
 {
+    public Transform transformInput;
+    public Transform transformOutput;
 
     void Start()
     {
@@ -13,6 +15,7 @@ public class StickScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transformOutput.position = transformInput.position;
+        transformOutput.rotation = transformInput.rotation;
     }
 }
