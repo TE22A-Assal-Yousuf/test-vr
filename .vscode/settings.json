@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "test vr.sln"
+    "dotnet.defaultSolution": "test vr.sln",
+    "FSharp.suggestGitignore": false
 }

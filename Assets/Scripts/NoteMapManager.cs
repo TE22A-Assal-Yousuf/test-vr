@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 using UnityEngine.InputSystem;
+using UnityEditor;
 
 public class NoteMapManager : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class NoteMapManager : MonoBehaviour
     public float delayNoteSpeed;
     public float noteDistance = 0.54f;
     float notesPerSecond = 2.16f;
+    public TextMeshProUGUI displayTimer;
+    float timer = 60;
 
 
     //--------------------------------------------------
@@ -54,6 +58,8 @@ public class NoteMapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        displayTimer.text = $"{(int)timer}";
+
         if (delayTimer > 0)
         {
             delayTimer -= Time.deltaTime;
@@ -69,10 +75,17 @@ public class NoteMapManager : MonoBehaviour
         if (gameHasStarted)
         {
             transform.position += new Vector3(0, 0, noteSpeed);
+            timer -= Time.deltaTime;
         }
         else if(gameHasStarted == false)
         {
             transform.position += new Vector3(0, 0, noteSpeed);
+        }
+
+        if(timer <= 0)
+        {
+            Time.timeScale = 0;
+            Song.Stop();            
         }
 
     }
