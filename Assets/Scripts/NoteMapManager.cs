@@ -5,9 +5,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class NoteMapManager : MonoBehaviour
 {
+
+    public GameObject endGameScreen;
     //------------------------------------------------
 
     public float startDistance = 0.948f;
@@ -19,7 +22,9 @@ public class NoteMapManager : MonoBehaviour
     public float noteDistance = 0.54f;
     float notesPerSecond = 2.16f;
     public TextMeshProUGUI displayTimer;
+    public TMP_Text gameEnddisplay;
     float timer = 60;
+    bool gameHasEnded = false;
 
 
     //--------------------------------------------------
@@ -74,18 +79,25 @@ public class NoteMapManager : MonoBehaviour
 
         if (gameHasStarted)
         {
-            transform.position += new Vector3(0, 0, noteSpeed);
+            transform.position += new Vector3(0 ,0 , noteSpeed );
             timer -= Time.deltaTime;
         }
         else if(gameHasStarted == false)
         {
-            transform.position += new Vector3(0, 0, noteSpeed);
+            transform.position += new Vector3(0 ,0 , noteSpeed );
         }
 
         if(timer <= 0)
         {
-            Time.timeScale = 0;
-            Song.Stop();            
+            Time.timeScale = 0; 
+            Song.Stop();  
+            gameHasEnded = true;      
+        }
+
+        if(gameHasEnded)
+        {
+            endGameScreen.SetActive(true);
+            gameEnddisplay.text = $" you had a {Player.DisplayAccuracy}% Accuracy";
         }
 
     }

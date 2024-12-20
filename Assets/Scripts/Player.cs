@@ -7,10 +7,11 @@ public class Player : MonoBehaviour
 {
 
     public TextMeshProUGUI display;
+    
     // Start is called before the first frame update
 
     public static float currentAcuracy = 100;
-    public float DisplayAccuracy;
+    static public float DisplayAccuracy;
 
     void Start()
     {
