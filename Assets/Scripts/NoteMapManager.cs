@@ -16,6 +16,7 @@ public class NoteMapManager : MonoBehaviour
     public float startDistance = 0.948f;
     public float delayDistance;
     public float delayTimer;
+    public Vector3 trueNoteSpeed;
     public float noteSpeed;
     public float songNoteSpeed = 0.052f;
     public float delayNoteSpeed;
@@ -45,7 +46,7 @@ public class NoteMapManager : MonoBehaviour
     void Start()
     {
         QualitySettings.vSyncCount = 0; // Set vSyncCount to 0 so that using .targetFrameRate is enabled.
-        Application.targetFrameRate = 60;
+        // Application.targetFrameRate = 0;
 
         //-------------------------------------------------------------------------------------
 
@@ -79,12 +80,15 @@ public class NoteMapManager : MonoBehaviour
 
         if (gameHasStarted)
         {
-            transform.position += new Vector3(0 ,0 , noteSpeed );
+            trueNoteSpeed = new Vector3(0, 0, noteSpeed);
+            transform.localPosition += trueNoteSpeed * Time.deltaTime * 58;
             timer -= Time.deltaTime;
         }
         else if(gameHasStarted == false)
         {
-            transform.position += new Vector3(0 ,0 , noteSpeed );
+            trueNoteSpeed = new Vector3(0, 0, noteSpeed);
+            transform.localPosition += trueNoteSpeed * Time.deltaTime * 58;
+            transform.position += new Vector3(0 ,0 , noteSpeed * Time.deltaTime);
         }
 
         if(timer <= 0)
