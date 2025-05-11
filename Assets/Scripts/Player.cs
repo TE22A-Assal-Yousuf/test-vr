@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
 {
 
     public TextMeshProUGUI display;
+
+    public AudioSource hitSFX;
+    public AudioClip clip;
+    public float volume = 1f;
     
     // Start is called before the first frame update
 
@@ -18,9 +22,16 @@ public class Player : MonoBehaviour
         
     }
 
+    void playsound()
+    {
+
+        hitSFX.PlayOneShot(clip, volume);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        
         DisplayAccuracy = currentAcuracy;
         
         if(DisplayAccuracy <= 0 )

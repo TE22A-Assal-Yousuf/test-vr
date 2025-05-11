@@ -11,6 +11,9 @@ TagManager:
   - Cymbal2
   - Blue
   - Pink
+  - Restart
+  - Start
+  - Re
   layers:
   - Default
   - TransparentFX

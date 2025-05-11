@@ -15,9 +15,10 @@ public class NoteManager : MonoBehaviour
 
     private bool perfectHit;
     public string drumTag;
-
+    
     void Start()
     {
+
         Drum = GameObject.FindGameObjectWithTag(drumTag);
     }
 
@@ -32,7 +33,7 @@ public class NoteManager : MonoBehaviour
 
         distance = Drum.transform.position.z - transform.position.z; ;
 
-        if(0.2 > distance && distance >= 0.1)
+        if (0.5 > distance && distance >= 0.0001)
         {
 
             perfectHit = true;
@@ -59,7 +60,20 @@ public class NoteManager : MonoBehaviour
 
         perfectHit = false;
 
+
+        void DoDelayAction(float delayTime)
+        {
+            StartCoroutine(DelayAction(delayTime));
+        }
+        IEnumerator DelayAction(float delayTime)
+        {
+            //Wait for the specified delay time before continuing.
+            yield return new WaitForSeconds(delayTime);
+            //Do the action after the delay time has finished.
+        }
+
         Destroy(this.gameObject);
+
 
     }
 

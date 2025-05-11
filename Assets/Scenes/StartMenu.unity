@@ -766,6 +766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purple_Drum
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bea093a92059da048825baee3b040da1, type: 3}
+      propertyPath: m_TagString
+      value: Re
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1191,7 +1195,7 @@ GameObject:
   - component: {fileID: 1480968830}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Re
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1297,6 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3b610f35f5f0645b45d4980d518811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttontype: Re
 --- !u!1001 &1655237729
 PrefabInstance:
   m_ObjectHideFlags: 0

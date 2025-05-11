@@ -11,6 +11,8 @@ public class NoteMapManager : MonoBehaviour
 {
 
     public GameObject endGameScreen;
+
+    public GameObject restartButton;
     //------------------------------------------------
 
     public float startDistance = 0.948f;
@@ -18,7 +20,7 @@ public class NoteMapManager : MonoBehaviour
     public float delayTimer;
     public Vector3 trueNoteSpeed;
     public float noteSpeed;
-    public float songNoteSpeed = 0.052f;
+    public float songNoteSpeed = 0.054f;
     public float delayNoteSpeed;
     public float noteDistance = 0.54f;
     float notesPerSecond = 2.16f;
@@ -38,19 +40,26 @@ public class NoteMapManager : MonoBehaviour
     public void StartGame()
     {
         gameHasStarted = true;
-        Song.PlayOneShot(clip, volume);
         noteSpeed = songNoteSpeed;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        Song.PlayOneShot(clip, volume);
+
+        Player.currentAcuracy = 100;
+
+        //-----------------------------------------------------------------------------------------
+
+        restartButton.SetActive(false);
+        endGameScreen.SetActive(false);
         QualitySettings.vSyncCount = 0; // Set vSyncCount to 0 so that using .targetFrameRate is enabled.
         // Application.targetFrameRate = 0;
 
         //-------------------------------------------------------------------------------------
 
-        delayTimer = 7;
+        delayTimer = 7.5f;      
 
         delayDistance = -14;
 
@@ -93,13 +102,14 @@ public class NoteMapManager : MonoBehaviour
 
         if(timer <= 0)
         {
-            Time.timeScale = 0; 
+            Time.timeScale = 1; 
             Song.Stop();  
             gameHasEnded = true;      
         }
 
         if(gameHasEnded)
         {
+            restartButton.SetActive(true);
             endGameScreen.SetActive(true);
             gameEnddisplay.text = $" you had a {Player.DisplayAccuracy}% Accuracy";
         }
